@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>email form</title>
+  </head>
+  <body>
+    <form action="/email/form" method="post">
+      email : <input type="text" name="email"><br>
+      <input type="submit">
+    </form>
+    <button class="ajaxsend">ajaxsend</button>
+    <div class="result"></div>
+    <script>
+      document.querySelector('.ajaxsend').addEventListener('click', function(){
+        var inputdata = document.forms[0].elements[0] .value;
+        // forms[0]로 폼에 접근 elements는 인풋타입 value는 입력한 값이다.
+        // sendAjax('http://127.0.0.1:3000/ajax_send_email',inputdata);
+        // 이렇게 하니까 안된다. cors 문제가 자꾸 뜨는데 앞에꺼 다 지워주니까 된다.
+        sendAjax('/email/ajax',inputdata);
+      });
+
+      function sendAjax(url, data){
+        var data = {'email': data};
+        data = JSON.stringify(data);
+        // 지금 data가 오브젝트형태인데 send할 때는 string타입으로 보내야 한다.
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', url);
+        xhr.setRequestHeader('Content-Type','application/json');
+        // 서버로 보낼 때 json 형태의 데이터 보내는데 application/json 형태로 보내야
+        xhr.send(data);
+        xhr.addEventListener('load', function(){
+          var result = JSON.parse(xhr.responseText);
+          var resultDiv = document.querySelector('.result');
+          if(result.result !== 'ok') resultDiv.innerHTML = 'Your email is not found'; else resultDiv.innerHTML = result.name; // name이라는 key로 보냈기에
+        });
+      }
+    </script>
+  </body>
+</html>
