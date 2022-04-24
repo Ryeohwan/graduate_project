@@ -28,5 +28,5 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-
+ // I have to call this from index
 app.use(router);
