@@ -5,11 +5,12 @@ from PIL import Image
 str = pytesseract.image_to_string(Image.open('C:/Users/ahnrh/OneDrive/바탕 화면/graduate_project/public/image/paper.png'), lang='kor')
 
 list_a = [i.replace(' ','') for i in str]
-i = 0
-for i in range(0,len(list_a)-1):
-    if list_a[i] == '':
-        list_a.remove('')
-    elif list_a[i] == '\n':
-        list_a.remove('\n')
+list_b = []
+wrong_list = ['_','|']
+for i in range(len(list_a)):
+    if list_a[i] != '':
+        if list_a[i] not in wrong_list:
+            list_b.append(list_a[i])
 
-print(list_a)
+print(list_b)
+# success to extract words
