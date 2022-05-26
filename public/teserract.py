@@ -6,7 +6,7 @@ str = pytesseract.image_to_string(Image.open('C:/Users/ahnrh/OneDrive/바탕 화
 
 list_a = [i.replace(' ','') for i in str]
 list_b = []
-wrong_list = ['_','|']
+wrong_list = ['_','|','(',')','[',']','@','$','^']
 for i in range(len(list_a)):
     if list_a[i] != '':
         if list_a[i] not in wrong_list:
