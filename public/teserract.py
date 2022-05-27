@@ -11,6 +11,10 @@ for i in range(len(list_a)):
     if list_a[i] != '':
         if list_a[i] not in wrong_list:
             list_b.append(list_a[i])
+check = ''
+for i in range(len(list_b)):
+    check += list_b[i]
 
-print(list_b)
+final_list = check.split()
+print(final_list)
 # success to extract words
