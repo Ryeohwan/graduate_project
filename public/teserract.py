@@ -7,10 +7,9 @@ str = pytesseract.image_to_string(Image.open('C:/Users/ahnrh/OneDrive/바탕 화
 
 list_a = [i.replace(' ','') for i in str]
 list_b = []
-wrong_text_list = ['_','|','(',')','[',']','@','$','^','\\','/','※','*','′',',','%','~','>','<','、','-','=','.','…','”','"']
 for i in range(len(list_a)):
     if list_a[i] != '':
-        if list_a[i] not in wrong_text_list:
+        if list_a[i] not in wr.wrong_text_list:
             list_b.append(list_a[i])
 check = ''
 for i in range(len(list_b)):
@@ -40,6 +39,7 @@ if order_num == '' and card_num == '':
 else:
     print(final_list)
     print(f'{order_num}\n{card_num}')
+    print('날짜:211014')
 
 
 # success to extract words
