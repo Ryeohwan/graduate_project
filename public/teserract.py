@@ -1,4 +1,5 @@
 import pytesseract
+import wrongs as wr
 from PIL import Image
 
 # pytesseract.pytesseract.tesseract_cmd = R'C:\Program Files\Tesseract-OCR\tesseract'
@@ -19,8 +20,7 @@ final_list = check.split()
 
 order_num = ''
 card_num = ''
-order_wrong = ['ㅜ문번호','수문번호','구무번호','주무번호','주우번호','주운번호']
-card_wrong = ['가드번호','카므번호','카드먼호','카드범호']
+
 for i in range(len(final_list)):
     if '주문번호' in final_list[i]:
         order_num = final_list[i]
@@ -28,9 +28,9 @@ for i in range(len(final_list)):
         card_num = final_list[i]
 if order_num == '' and card_num == '':
     for i in range(len(final_list)):
-        if final_list[i] in order_wrong:
+        if final_list[i] in wr.order_wrong:
             order = final_list[i]
-        elif final_list[i] in card_wrong:
+        elif final_list[i] in wr.card_wrong:
             card_num = final_list[i]
 
 
