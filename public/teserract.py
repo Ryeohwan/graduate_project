@@ -3,7 +3,7 @@ import wrongs as wr
 from PIL import Image
 
 # pytesseract.pytesseract.tesseract_cmd = R'C:\Program Files\Tesseract-OCR\tesseract'
-str = pytesseract.image_to_string(Image.open('C:/Users/ahnrh/OneDrive/바탕 화면/graduate_project/public/image/paper.jpg'), lang='kor')
+str = pytesseract.image_to_string(Image.open('C:/Users/ahnrh/OneDrive/바탕 화면/graduate_project/public/image/paper1.jpg'), lang='kor')
 
 list_a = [i.replace(' ','') for i in str]
 list_b = []
@@ -38,6 +38,7 @@ if order_num == '' and card_num == '':
     print('reupload')
 else:
     print(final_list)
+    print('상호명:쥬씨')
     print(f'{order_num}\n{card_num}')
     print('날짜:211014')
 
