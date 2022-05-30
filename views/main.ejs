@@ -49,10 +49,24 @@
 
 <section class = "upload-section" id = "upload">
         <h1>영수증을 업로드 해주세요.</h1><br>
-        <form>
-            <input id = 'img' type="readonly"/> <button>업로드</button><br><br>
+        <form id = 'uploads'>
+            <input id = 'img' type="readonly"/> <button class = 'btn'>업로드</button><br><br>
         </form>
+        <script>
+            var cols = document.querySelectorAll("#uploads .btn");
+
+            for (var i = 0; i < cols.length; i++) {
+                cols[i].addEventListener("click", click);
+            }
+            cols[1].style.color = "red";
+
+            function click(e) {
+            window.alert('업로드 성공');
+            }
+        </script>
         <h2>정면으로 촬영된 영수증을 업로드해주세요.</h2><br><br>
+
+        <h2>쥬시성남터미널점 014 고객님 날짜:211014</h2><br><br>
 </section>
 
 
@@ -126,6 +140,7 @@ ps.keywordSearch('분위기 좋은 카페', placesSearchCB);
 ps.keywordSearch('종로 맛집', placesSearchCB);
 ps.keywordSearch('영등포 맛집', placesSearchCB);
 ps.keywordSearch('분당 맛집', placesSearchCB);
+ps.keywordSearch('차얌', placesSearchCB);
 // 키워드 검색 완료 시 호출되는 콜백함수 입니다
 function placesSearchCB (data, status, pagination) {
     if (status === kakao.maps.services.Status.OK) {
