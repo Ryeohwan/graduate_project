@@ -33,7 +33,7 @@ if order_num == '' and card_num == '':
             card_num = final_list[i]
 
 
- # I have to many examples add another receipts
+ # I have to many examples add other receipts
 if order_num == '' and card_num == '':
     print('reupload')
 else:
