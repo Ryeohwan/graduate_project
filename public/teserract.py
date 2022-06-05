@@ -20,7 +20,7 @@ final_list = check.split()
 order_num = ''
 card_num = ''
 
-for i in range(len(final_list)):
+for i in range(len(final_list)):  # find wrongs
     if '주문번호' in final_list[i]:
         order_num = final_list[i]
     elif '카드번호' in final_list[i]:
@@ -33,7 +33,7 @@ if order_num == '' and card_num == '':
             card_num = final_list[i]
 
 
- # I have to many examples add other receipts
+ # I have to many examples add other receipts 
 if order_num == '' and card_num == '':
     print('reupload')
 else:
