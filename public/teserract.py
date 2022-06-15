@@ -22,7 +22,7 @@ card_num = ''
 
 
 
-for i in range(len(final_list)):  # find wrong words and except
+for i in range(len(final_list)):  # find wrong words and excepts   
     if '주문번호' in final_list[i]:
         order_num = final_list[i]
     elif '카드번호' in final_list[i]:
