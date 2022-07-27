@@ -1,5 +1,5 @@
 # graduate_project
-I should finish this painful project!
+I finished this painful project!
 
 
 ---
